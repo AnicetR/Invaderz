@@ -24,7 +24,7 @@ function Lifebar() {
         Engine.context.addSprite(self.sprite, self.position.x, self.position.y);
     };
 
-    this.position.y = Engine.context.boundaries.maxX - self.sprite.height - 20;
+    
 
     this.updateObject = function () {
 
@@ -32,6 +32,7 @@ function Lifebar() {
 
     this.drawObject = function () {
         self.sprite.draw();
+        this.position.y = Engine.context.boundaries.maxX - (self.sprite.height/2);
     }
 
 

@@ -32,7 +32,7 @@ function Spaceship() {
 
 
 
-    this.position.y = Engine.context.boundaries.maxY - self.sprite.height - 20;
+    
 
     this.onCollide = function(){
         self.life = self.life - 1;
@@ -64,8 +64,9 @@ function Spaceship() {
                     self.position.x -= speed;
             }
             if (Engine.inputs.keyPressed[Engine.inputs.keyMap.RIGHT]) {
-                if ((self.position.x + speed) < (Engine.context.boundaries.maxX - self.sprite.width)){}
+                if ((self.position.x + speed) < (Engine.context.boundaries.maxX - self.sprite.width)){
                     self.position.x += speed;
+                }
             }
 
             if (Engine.inputs.keyPressed[Engine.inputs.keyMap.SPACEBAR]) {
@@ -91,13 +92,15 @@ function Spaceship() {
         ctx.shadowColor = "rgba(5,5,24, 0.3)";
         ctx.shadowBlur = 10;
         ctx.shadowOffsetX = self.position.x - (Engine.context.boundaries.maxX / 2);
-        if(self.position.x > (Engine.context.boundaries.maxX / 2))
-            ctx.shadowOffsetX = ctx.shadowOffsetX * -1;
+
         ctx.shadowOffsetY = 50;
         self.sprite.draw();
+
         ctx.shadowOffsetY = 0;
         ctx.shadowOffsetX = 0;
         ctx.shadowBlur = 0;
+
+        self.position.y = Engine.context.boundaries.maxY - self.sprite.height;
     }
 
 
